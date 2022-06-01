@@ -12,13 +12,13 @@ namespace Torpedo
         public int x;
         public int y;
 
-        public SolidColorBrush shipColor;
+        public string name;
 
-        public Ship(int x, int y, SolidColorBrush shipColor)
+        public Ship(int x, int y, string name)
         {
             this.x = x;
             this.y = y;
-            this.shipColor = shipColor;
+            this.name = name;
         }
 
 

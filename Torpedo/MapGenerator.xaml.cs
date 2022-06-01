@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Torpedo
 {
@@ -90,7 +81,7 @@ namespace Torpedo
             return list;
         }
 
-        List<Ship> GenerateShipPositions(List<Vector> list, int len, int direction, SolidColorBrush shipColor)
+        List<Ship> GenerateShipPositions(List<Vector> list, int len, int direction, string name)
         {
             Random random = new Random();
             List<Ship> map = new List<Ship>();
@@ -117,7 +108,7 @@ namespace Torpedo
 
                 for (int i = 0; i < len; i++)
                 {
-                    map.Add(new Ship(x, y + i, shipColor));
+                    map.Add(new Ship(x, y + i, name));
                 }
                 invalidPositions.AddRange(AddToList(x, y, len, true));
             }
@@ -140,7 +131,7 @@ namespace Torpedo
 
                 for (int i = 0; i < len; i++)
                 {
-                    map.Add(new Ship(x + i, y, shipColor));
+                    map.Add(new Ship(x + i, y, name));
                 }
                 invalidPositions.AddRange(AddToList(x, y, len, false));
             }
@@ -149,14 +140,20 @@ namespace Torpedo
 
 
 
-        List<Vector> invalidPositions = new List<Vector>();
+        List<Vector> invalidPositions;
+        List<Ship> shipPositions;
         public MapGenerator()
         {
             InitializeComponent();
 
         }
 
-        public void GeneratePlayer1Map(Canvas canvas, Button[,] buttons)
+        public void LoadEnemyShips()
+        {
+
+        }
+
+        public void GeneratePlayerMap(Canvas canvas, Button[,] buttons)
         {
             double width, height = 0;
 
@@ -166,7 +163,7 @@ namespace Torpedo
                 for (int j = 0; j < 10; j++)
                 {
                     Button btn = new Button();
-                    btn.Name = "btn_" + i.ToString() + "_" + j.ToString();
+                    btn.Name = "btn_" + i.ToString() + "_" + j.ToString() + "_Water";
                     btn.Height = canvas.Height / 10;
                     btn.Width = canvas.Width / 10;
                     buttons[i, j] = btn;
@@ -180,65 +177,43 @@ namespace Torpedo
 
             }
 
-            List<Ship> shipPositions = new List<Ship>();
+            invalidPositions = new List<Vector>();
+            shipPositions = new List<Ship>();
             Random random = new Random();
 
-            SolidColorBrush shipColor;
+            string name;
 
             for (int i = 5; i > 0; i--)
             {
                 switch (i)
                 {
                     case 5:
-                        shipColor = Brushes.Green;
+                        name = "Carrier";
                         break;
                     case 4:
-                        shipColor = Brushes.ForestGreen;
+                        name = "Battleship";
                         break;
                     case 3:
-                        shipColor = Brushes.SeaGreen;
+                        name = "Cruiser";
                         break;
                     case 2:
-                        shipColor = Brushes.MediumSeaGreen;
+                        name = "Destroyer";
                         break;
                     default:
-                        shipColor = Brushes.MediumAquamarine;
+                        name = "Submarine";
                         break;
                 }
 
-                shipPositions.AddRange(GenerateShipPositions(invalidPositions, i, random.Next(), shipColor));
+                shipPositions.AddRange(GenerateShipPositions(invalidPositions, i, random.Next(), name));
             }
 
             foreach (var i in shipPositions)
             {
-                buttons[i.x, i.y].Background = i.shipColor;
+                buttons[i.x, i.y].Background = Brushes.MediumSeaGreen;
+                buttons[i.x, i.y].Name = "btn_" + i.x + "_" + i.y + "_" + i.name;
             }
 
         }
-
-        public void GeneratePlayer2Map(Canvas canvas, Button[,] buttons)
-        {
-            double width, height = 0;
-
-            for (int i = 0; i < 10; i++)
-            {
-                width = 0;
-                for (int j = 0; j < 10; j++)
-                {
-                    Button btn = new Button();
-                    btn.Name = "btn_" + i.ToString() + "_" + j.ToString();
-                    btn.Height = canvas.Height / 10;
-                    btn.Width = canvas.Width / 10;
-                    buttons[i, j] = btn;
-                    Canvas.SetLeft(buttons[i, j], width);
-                    Canvas.SetTop(buttons[i, j], height);
-                    width += canvas.Width / 10;
-                    canvas.Children.Add(btn);
-                }
-                height += 40;
-
-            }
-
-        }
+       
     }
 }

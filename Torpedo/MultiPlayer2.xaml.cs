@@ -24,12 +24,13 @@ namespace Torpedo
 
         public event EventHandler player2;
         public static Button[,] player2Buttons = new Button[10, 10];
+        public static Button[,] enemyButtons = new Button[10, 10];
         public MultiPlayer2()
         {
             InitializeComponent();
-            mapGenerator.GeneratePlayer1Map(player2Canvas, player2Buttons);
+            mapGenerator.GeneratePlayerMap(player2Canvas, player2Buttons);
             GetClickedButton();
-            mapGenerator.GeneratePlayer2Map(player2CanvasHelper, MultiPlayer1.player1Buttons);
+            mapGenerator.GeneratePlayerMap(player2CanvasHelper, enemyButtons);
 
         }
 
