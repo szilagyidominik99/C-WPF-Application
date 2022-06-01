@@ -22,11 +22,30 @@ namespace Torpedo
     {
         MapGenerator mapGenerator = new MapGenerator();
         public event EventHandler player2;
+        Button[,] player2Buttons = new Button[10, 10];
         public MultiPlayer2()
         {
             InitializeComponent();
-            mapGenerator.GenerateEmptyMap(player2Canvas);
+            mapGenerator.GenerateEmptyMap(player2Canvas,player2Buttons);
+            GetClickedButton();
             
+        }
+
+        public void GetClickedButton()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    player2Buttons[i, j].Click += MultiPlayer2_Click;
+                }
+            }
+        }
+
+        private void MultiPlayer2_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            System.Diagnostics.Debug.WriteLine(button.Name);
         }
 
         private void Player2(object sender, RoutedEventArgs e)

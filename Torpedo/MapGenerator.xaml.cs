@@ -148,8 +148,7 @@ namespace Torpedo
         }
 
 
-        Button[,] buttons = new Button[10, 10];
-        char[] c = new char[10] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
+        
         List<Vector> invalidPositions = new List<Vector>();
         public MapGenerator()
         {
@@ -157,7 +156,7 @@ namespace Torpedo
 
         }
 
-        public void GenerateEmptyMap(Canvas canvas)
+        public void GenerateEmptyMap(Canvas canvas, Button[,] buttons)
         {
             double width, height = 0;
 
@@ -167,10 +166,9 @@ namespace Torpedo
                 for (int j = 0; j < 10; j++)
                 {
                     Button btn = new Button();
-                    btn.Name = c[j] + (i + 1).ToString();
+                    btn.Name = "btn_" + i.ToString() + "_" + j.ToString();
                     btn.Height = canvas.Height / 10;
                     btn.Width = canvas.Width / 10;
-                    btn.Click += GetClickedButton;
                     buttons[i, j] = btn;
                     Canvas.SetLeft(buttons[i, j], width);
                     Canvas.SetTop(buttons[i, j], height);
@@ -217,10 +215,7 @@ namespace Torpedo
 
         }
 
-        private void GetClickedButton(object sender, RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-            System.Diagnostics.Debug.WriteLine(button.Name);
-        }
+        
+        
     }
 }
