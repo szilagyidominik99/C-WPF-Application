@@ -21,15 +21,26 @@ namespace Torpedo
     public partial class MainWindow : Window
     {
         Grid grid = new Grid();
-        
+
         SelectGameMode gameMode = new SelectGameMode();
         MultiPlayer1 mPlayer1 = new MultiPlayer1();
         MultiPlayer2 mPlayer2 = new MultiPlayer2();
         MapGenerator mapGenerator = new MapGenerator();
+        Button[,] player1Buttons = new Button[10, 10];
+        Button[,] player2Buttons = new Button[10, 10];
+        Button[,] player1ButtonsClickEnable = new Button[10, 10];
+        Button[,] player2ButtonsClickEnable = new Button[10, 10];
         public MainWindow()
         {
             InitializeComponent();
             StartGame();
+            mapGenerator.GenerateEmptyMap(mPlayer1.player1Canvas, player1Buttons);
+            mapGenerator.GenerateEmptyMap(mPlayer1.player1CanvasHelper, player2ButtonsClickEnable);
+            mapGenerator.GenerateEmptyMap(mPlayer2.player2Canvas, player2Buttons);
+            mapGenerator.GenerateEmptyMap(mPlayer2.player2CanvasHelper, player1ButtonsClickEnable);
+            mPlayer1.player1Canvas.IsEnabled = false;
+            mPlayer2.player2Canvas.IsEnabled = false;
+            GetClickedButton();
         }
 
         public void StartGame()
@@ -51,6 +62,30 @@ namespace Torpedo
             grid.Children.Clear();
             grid.Children.Add(mPlayer2);
             mPlayer2.player2 += new EventHandler(Player1);
+        }
+
+        public void GetClickedButton()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    player1ButtonsClickEnable[i, j].Click += MultiPlayer1_Click;
+                    player2ButtonsClickEnable[i, j].Click += MultiPlayer2_Click;
+                }
+            }
+        }
+
+        private void MultiPlayer1_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            System.Diagnostics.Debug.WriteLine(button.Name);
+        }
+
+        private void MultiPlayer2_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            System.Diagnostics.Debug.WriteLine(button.Name);
         }
     }
 }
