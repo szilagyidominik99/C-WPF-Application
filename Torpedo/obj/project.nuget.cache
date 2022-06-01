@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/HqHEUC3p3/Y81KYGh0DEQ3QATX4Z95AsvjY/s/37JmSuF7M6W8+GMJiMCRfMaBZ2fzYJNHltxqCy7ZGwZqyCQ==",
+  "dgSpecHash": "8XTx2i0GG2Us4IDyJRv+jHQAMyn9Qe4WeWwlcotjXUvWRXNpeYG4pmui2MzCgimsvBiTSCxfFvE5dl3l/Yoieg==",
   "success": true,
-  "projectFilePath": "D:\\tor\\Torpedo\\Torpedo.csproj",
+  "projectFilePath": "C:\\Users\\szila\\Source\\Repos\\C-WPF-Application\\Torpedo\\Torpedo.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

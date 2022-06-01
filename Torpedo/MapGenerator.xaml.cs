@@ -148,7 +148,7 @@ namespace Torpedo
         }
 
 
-        
+
         List<Vector> invalidPositions = new List<Vector>();
         public MapGenerator()
         {
@@ -156,7 +156,7 @@ namespace Torpedo
 
         }
 
-        public void GenerateEmptyMap(Canvas canvas, Button[,] buttons)
+        public void GeneratePlayer1Map(Canvas canvas, Button[,] buttons)
         {
             double width, height = 0;
 
@@ -174,6 +174,7 @@ namespace Torpedo
                     Canvas.SetTop(buttons[i, j], height);
                     width += canvas.Width / 10;
                     canvas.Children.Add(btn);
+
                 }
                 height += 40;
 
@@ -215,7 +216,29 @@ namespace Torpedo
 
         }
 
-        
-        
+        public void GeneratePlayer2Map(Canvas canvas, Button[,] buttons)
+        {
+            double width, height = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                width = 0;
+                for (int j = 0; j < 10; j++)
+                {
+                    Button btn = new Button();
+                    btn.Name = "btn_" + i.ToString() + "_" + j.ToString();
+                    btn.Height = canvas.Height / 10;
+                    btn.Width = canvas.Width / 10;
+                    buttons[i, j] = btn;
+                    Canvas.SetLeft(buttons[i, j], width);
+                    Canvas.SetTop(buttons[i, j], height);
+                    width += canvas.Width / 10;
+                    canvas.Children.Add(btn);
+                }
+                height += 40;
+
+            }
+
+        }
     }
 }

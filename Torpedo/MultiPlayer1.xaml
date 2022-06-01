@@ -5,14 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Torpedo"
              mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="1000">
     <Grid>
-        <Grid Height="250" Width="150" HorizontalAlignment="Left">
+        <Grid Height="250" Width="100" HorizontalAlignment="Left">
             <Label Content="Játékos1" Height="30" VerticalAlignment="Top"></Label>
             <Button Content="Other Player" Height="30" Margin="0,0,0,155" Click="Player1"></Button>
         </Grid>
-        <Canvas Name="player1Canvas" Height="400" Width="400" Margin="200,25,200,25"></Canvas>
-        
+        <Grid Width="840" HorizontalAlignment="Left" Margin="130,0,0,0">
+            <Canvas Name="player1Canvas" Height="400" Width="400" HorizontalAlignment="Left"></Canvas>
+            <Canvas Name="player1CanvasHelper" Height="400" Width="400" HorizontalAlignment="Right" ></Canvas>
+        </Grid>
+
+
     </Grid>
-    
+
 </UserControl>

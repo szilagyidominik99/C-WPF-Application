@@ -20,14 +20,18 @@ namespace Torpedo
     /// </summary>
     public partial class MultiPlayer1 : UserControl
     {
+
         MapGenerator mapGenerator = new MapGenerator();
+
         public event EventHandler player1;
-        Button[,] player1Buttons = new Button[10,10];
+        public static Button[,] player1Buttons = new Button[10, 10];
         public MultiPlayer1()
         {
             InitializeComponent();
-            mapGenerator.GenerateEmptyMap(player1Canvas,player1Buttons);
+            mapGenerator.GeneratePlayer1Map(player1Canvas, player1Buttons);
             GetClickedButton();
+
+            mapGenerator.GeneratePlayer2Map(player1CanvasHelper, MultiPlayer2.player2Buttons);
         }
 
         public void GetClickedButton()

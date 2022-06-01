@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\tor\\Torpedo\\Torpedo.csproj": {}
+    "C:\\Users\\szila\\Source\\Repos\\C-WPF-Application\\Torpedo\\Torpedo.csproj": {}
   },
   "projects": {
-    "D:\\tor\\Torpedo\\Torpedo.csproj": {
+    "C:\\Users\\szila\\Source\\Repos\\C-WPF-Application\\Torpedo\\Torpedo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\tor\\Torpedo\\Torpedo.csproj",
+        "projectUniqueName": "C:\\Users\\szila\\Source\\Repos\\C-WPF-Application\\Torpedo\\Torpedo.csproj",
         "projectName": "Torpedo",
-        "projectPath": "D:\\tor\\Torpedo\\Torpedo.csproj",
+        "projectPath": "C:\\Users\\szila\\Source\\Repos\\C-WPF-Application\\Torpedo\\Torpedo.csproj",
         "packagesPath": "C:\\Users\\szila\\.nuget\\packages\\",
-        "outputPath": "D:\\tor\\Torpedo\\obj\\",
+        "outputPath": "C:\\Users\\szila\\Source\\Repos\\C-WPF-Application\\Torpedo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\szila\\AppData\\Roaming\\NuGet\\NuGet.Config",
