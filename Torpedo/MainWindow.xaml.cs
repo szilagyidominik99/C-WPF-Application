@@ -39,6 +39,7 @@ namespace Torpedo
             mapGenerator.GenerateEmptyMap(mPlayer1.player1CanvasHelper, player2ButtonsClickEnable);
             mapGenerator.GenerateEmptyMap(mPlayer2.player2Canvas, player2Buttons);
             mapGenerator.GenerateEmptyMap(mPlayer2.player2CanvasHelper, player1ButtonsClickEnable);
+            
 
             mapGenerator.LoadPlayerShips(player1Buttons);
             mapGenerator.LoadPlayerShips(player2Buttons);
@@ -52,21 +53,23 @@ namespace Torpedo
         {
             Content = grid;
             grid.Children.Add(gameMode);
-            gameMode.multiplayer += new EventHandler(Player1);
+            gameMode.multiplayer += Player1;
         }
 
         private void Player1(object? sender, EventArgs e)
         {
+            mPlayer2.player2 -= Player1;
             grid.Children.Clear();
             grid.Children.Add(mPlayer1);
-            mPlayer1.player1 += new EventHandler(Player2);
+            mPlayer1.player1 += Player2;
         }
 
         private void Player2(object? sender, EventArgs e)
         {
+            mPlayer1.player1 -= Player2;
             grid.Children.Clear();
             grid.Children.Add(mPlayer2);
-            mPlayer2.player2 += new EventHandler(Player1);
+            mPlayer2.player2 += Player1;
         }
 
         public void GetClickedButton()
@@ -85,14 +88,17 @@ namespace Torpedo
         {
             Button button = (Button)sender;
             System.Diagnostics.Debug.WriteLine(button.Name);
-            button.Background = Brushes.Red;
+            button.Background = Brushes.White;
+            
         }
 
         private void MultiPlayer2_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             System.Diagnostics.Debug.WriteLine(button.Name);
-            button.Background = Brushes.Red;
+            button.Background = Brushes.White;
+
+
         }
     }
 }
