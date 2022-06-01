@@ -30,6 +30,7 @@ namespace Torpedo
         Button[,] player2Buttons = new Button[10, 10];
         Button[,] player1ButtonsClickEnable = new Button[10, 10];
         Button[,] player2ButtonsClickEnable = new Button[10, 10];
+
         public MainWindow()
         {
             InitializeComponent();
@@ -38,8 +39,12 @@ namespace Torpedo
             mapGenerator.GenerateEmptyMap(mPlayer1.player1CanvasHelper, player2ButtonsClickEnable);
             mapGenerator.GenerateEmptyMap(mPlayer2.player2Canvas, player2Buttons);
             mapGenerator.GenerateEmptyMap(mPlayer2.player2CanvasHelper, player1ButtonsClickEnable);
-            mPlayer1.player1Canvas.IsEnabled = false;
-            mPlayer2.player2Canvas.IsEnabled = false;
+
+            mapGenerator.LoadPlayerShips(player1Buttons);
+            mapGenerator.LoadPlayerShips(player2Buttons);
+            mapGenerator.LoadEnemyShips(player1ButtonsClickEnable, player1Buttons);
+            mapGenerator.LoadEnemyShips(player2ButtonsClickEnable, player2Buttons);
+
             GetClickedButton();
         }
 
@@ -80,12 +85,14 @@ namespace Torpedo
         {
             Button button = (Button)sender;
             System.Diagnostics.Debug.WriteLine(button.Name);
+            button.Background = Brushes.Red;
         }
 
         private void MultiPlayer2_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             System.Diagnostics.Debug.WriteLine(button.Name);
+            button.Background = Brushes.Red;
         }
     }
 }
