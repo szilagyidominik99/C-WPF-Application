@@ -184,3 +184,34 @@ D:\Új mappa\Torpedo\obj\Debug\net6.0-windows\refint\Torpedo.dll
 D:\Új mappa\Torpedo\obj\Debug\net6.0-windows\Torpedo.pdb
 D:\Új mappa\Torpedo\obj\Debug\net6.0-windows\Torpedo.genruntimeconfig.cache
 D:\Új mappa\Torpedo\obj\Debug\net6.0-windows\ref\Torpedo.dll
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\bin\Debug\net6.0-windows\Torpedo.exe
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\bin\Debug\net6.0-windows\Torpedo.deps.json
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\bin\Debug\net6.0-windows\Torpedo.runtimeconfig.json
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\bin\Debug\net6.0-windows\Torpedo.dll
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\bin\Debug\net6.0-windows\ref\Torpedo.dll
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\bin\Debug\net6.0-windows\Torpedo.pdb
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.AssemblyReference.cache
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\MapGenerator.g.cs
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\MultiPlayer1.g.cs
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\MultiPlayer2.g.cs
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\SelectGameMode.g.cs
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\SinglePlayer.g.cs
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo_MarkupCompile.cache
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo_MarkupCompile.lref
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\MapGenerator.baml
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\MultiPlayer1.baml
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\MultiPlayer2.baml
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\SelectGameMode.baml
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\SinglePlayer.baml
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo.g.resources
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo.AssemblyInfoInputs.cache
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo.AssemblyInfo.cs
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.CoreCompileInputs.cache
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo.dll
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\ref\Torpedo.dll
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo.pdb
+C:\Users\Gönczy\Source\Repos\C-WPF-Application1234\Torpedo\obj\Debug\net6.0-windows\Torpedo.genruntimeconfig.cache

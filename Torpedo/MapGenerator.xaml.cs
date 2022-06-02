@@ -154,7 +154,7 @@ namespace Torpedo
             Random random = new Random();
 
             string name;
-
+            //  "Destroyer", "Cruiser", "Submarine", "Battleship", "Carrier"
             for (int i = 5; i > 0; i--)
             {
                 switch (i)
@@ -166,13 +166,13 @@ namespace Torpedo
                         name = "Battleship";
                         break;
                     case 3:
-                        name = "Cruiser";
+                        name = "Submarine";
                         break;
                     case 2:
-                        name = "Destroyer";
+                        name = "Cruiser";
                         break;
                     default:
-                        name = "Submarine";
+                        name = "Destroyer";
                         break;
                 }
 
