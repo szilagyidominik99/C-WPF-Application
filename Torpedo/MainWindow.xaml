@@ -10,6 +10,7 @@
         <ImageBrush ImageSource="/water.jpg"></ImageBrush>
     </Window.Background>
     <Grid>
-        
+        <Button Content="SinglePlayer" Width="100" Height="30" Margin="100,110,100,160" Click="OnStartSinglePlayerMode" ></Button>
+        <Button Content="MultiPlayer" Width="100" Height="30" Margin="100,160,100,110" Click="OnStartMultiPlayerMode"></Button>
     </Grid>
 </Window>

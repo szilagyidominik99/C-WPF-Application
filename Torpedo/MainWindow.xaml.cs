@@ -21,8 +21,6 @@ namespace Torpedo
     public partial class MainWindow : Window
     {
         Grid grid = new Grid();
-
-        SelectGameMode gameMode = new SelectGameMode();
         MultiPlayer1 mPlayer1 = new MultiPlayer1();
         MultiPlayer2 mPlayer2 = new MultiPlayer2();
         SinglePlayer sPlayer = new SinglePlayer();
@@ -55,16 +53,23 @@ namespace Torpedo
         public MainWindow()
         {
             InitializeComponent();
+        }
 
+        private void OnStartSinglePlayerMode(object sender, RoutedEventArgs e)
+        {
+            StartSinglePlayerGame();
+        }
 
+        private void OnStartMultiPlayerMode(object sender, RoutedEventArgs e)
+        {
             StartMultiPlayerGame();
         }
 
         public void StartSinglePlayerGame()
         {
             Content = grid;
-            grid.Children.Add(gameMode);
-            gameMode.singlepalyer += Player;
+            grid.Children.Clear();
+            grid.Children.Add(sPlayer);
 
             mapGenerator.GenerateEmptyMap(sPlayer.playerCanvas, player1Buttons);
             mapGenerator.GenerateEmptyMap(sPlayer.computerCanvas, player2Buttons);
@@ -78,8 +83,9 @@ namespace Torpedo
         public void StartMultiPlayerGame()
         {
             Content = grid;
-            grid.Children.Add(gameMode);
-            gameMode.multiplayer += Player1;
+            grid.Children.Clear();
+            grid.Children.Add(mPlayer1);
+            mPlayer1.player1 += Player2;
 
             mapGenerator.GenerateEmptyMap(mPlayer1.player1Canvas, player1Buttons);
             mapGenerator.GenerateEmptyMap(mPlayer1.player1CanvasHelper, player2ButtonsClickEnable);

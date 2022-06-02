@@ -16,9 +16,6 @@
     <Compile Update="MultiPlayer2.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SelectGameMode.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="SinglePlayer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,9 +31,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MultiPlayer2.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="SelectGameMode.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SinglePlayer.xaml">

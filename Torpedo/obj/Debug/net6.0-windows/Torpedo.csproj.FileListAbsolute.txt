@@ -39,7 +39,6 @@ D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MainWindow.g.cs
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MapGenerator.g.cs
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MultiPlayer1.g.cs
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MultiPlayer2.g.cs
-D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\SelectGameMode.g.cs
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\SinglePlayer.g.cs
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\App.g.cs
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\Torpedo_MarkupCompile.cache
@@ -48,7 +47,6 @@ D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MainWindow.baml
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MapGenerator.baml
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MultiPlayer1.baml
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MultiPlayer2.baml
-D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\SelectGameMode.baml
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\SinglePlayer.baml
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\Torpedo.g.resources
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\Torpedo.GeneratedMSBuildEditorConfig.editorconfig
