@@ -25,6 +25,7 @@ namespace Torpedo
         SelectGameMode gameMode = new SelectGameMode();
         MultiPlayer1 mPlayer1 = new MultiPlayer1();
         MultiPlayer2 mPlayer2 = new MultiPlayer2();
+        SinglePlayer sPlayer = new SinglePlayer();
         MapGenerator mapGenerator = new MapGenerator();
         Button[,] player1Buttons = new Button[10, 10];
         Button[,] player2Buttons = new Button[10, 10];
@@ -51,31 +52,53 @@ namespace Torpedo
 
         bool playerTurn = false;
 
-       
-
         public MainWindow()
         {
             InitializeComponent();
-            StartGame();
-            mapGenerator.GenerateEmptyMap(mPlayer1.player1Canvas, player1Buttons);
-            mapGenerator.GenerateEmptyMap(mPlayer1.player1CanvasHelper, player2ButtonsClickEnable);
-            mapGenerator.GenerateEmptyMap(mPlayer2.player2Canvas, player2Buttons);
-            mapGenerator.GenerateEmptyMap(mPlayer2.player2CanvasHelper, player1ButtonsClickEnable);
-            
 
-            mapGenerator.LoadPlayerShips(player1Buttons);
-            mapGenerator.LoadPlayerShips(player2Buttons);
-            mapGenerator.LoadEnemyShips(player1ButtonsClickEnable, player1Buttons);
-            mapGenerator.LoadEnemyShips(player2ButtonsClickEnable, player2Buttons);
 
-            GetClickedButton();
+            StartMultiPlayerGame();
         }
 
-        public void StartGame()
+        public void StartSinglePlayerGame()
+        {
+            Content = grid;
+            grid.Children.Add(gameMode);
+            gameMode.singlepalyer += Player;
+
+            mapGenerator.GenerateEmptyMap(sPlayer.playerCanvas, player1Buttons);
+            mapGenerator.GenerateEmptyMap(sPlayer.computerCanvas, player2Buttons);
+
+            mapGenerator.LoadPlayerShips(player1Buttons, true);
+            mapGenerator.LoadPlayerShips(player2Buttons, false);
+
+            GetSPClickedButton();
+        }
+
+        public void StartMultiPlayerGame()
         {
             Content = grid;
             grid.Children.Add(gameMode);
             gameMode.multiplayer += Player1;
+
+            mapGenerator.GenerateEmptyMap(mPlayer1.player1Canvas, player1Buttons);
+            mapGenerator.GenerateEmptyMap(mPlayer1.player1CanvasHelper, player2ButtonsClickEnable);
+            mapGenerator.GenerateEmptyMap(mPlayer2.player2Canvas, player2Buttons);
+            mapGenerator.GenerateEmptyMap(mPlayer2.player2CanvasHelper, player1ButtonsClickEnable);
+
+
+            mapGenerator.LoadPlayerShips(player1Buttons, true);
+            mapGenerator.LoadPlayerShips(player2Buttons, true);
+            mapGenerator.LoadEnemyShips(player1ButtonsClickEnable, player1Buttons);
+            mapGenerator.LoadEnemyShips(player2ButtonsClickEnable, player2Buttons);
+
+            GetMPClickedButton();
+        }
+
+        private void Player(object? sender, EventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(sPlayer);
         }
 
         private void Player1(object? sender, EventArgs e)
@@ -94,7 +117,18 @@ namespace Torpedo
             mPlayer2.player2 += Player1;
         }
 
-        public void GetClickedButton()
+        public void GetSPClickedButton()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    player2Buttons[i, j].Click += SinglePlayer_Click;
+                }
+            }
+        }
+
+        public void GetMPClickedButton()
         {
             for (int i = 0; i < 10; i++)
             {
@@ -102,9 +136,16 @@ namespace Torpedo
                 {
                     player1ButtonsClickEnable[i, j].Click += MultiPlayer1_Click;
                     player2ButtonsClickEnable[i, j].Click += MultiPlayer2_Click;
-
                 }
             }
+        }
+
+        private void SinglePlayer_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            System.Diagnostics.Debug.WriteLine(button.Name);
+            button.Background = Brushes.Blue;
+
         }
 
         private void MultiPlayer1_Click(object sender, RoutedEventArgs e)
@@ -182,7 +223,7 @@ namespace Torpedo
                 System.Diagnostics.Debug.WriteLine(button.Name);
             }else
             {
-                MessageBoxResult result = MessageBox.Show("Next Player move");
+                MessageBoxResult result = MessageBox.Show("Other player's turn!");
             }
         }
 
@@ -258,7 +299,7 @@ namespace Torpedo
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show("Next player move");
+                MessageBoxResult result = MessageBox.Show("Other player's turn!");
             }
 
         }

@@ -20,9 +20,16 @@ namespace Torpedo
     /// </summary>
     public partial class SinglePlayer : UserControl
     {
+
+        public event EventHandler singlePlayer;
         public SinglePlayer()
         {
             InitializeComponent();
+        }
+
+        public void Player(object sender, RoutedEventArgs e)
+        {
+            singlePlayer(this, e);
         }
     }
 }

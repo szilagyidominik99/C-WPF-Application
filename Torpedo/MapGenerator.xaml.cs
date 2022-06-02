@@ -147,7 +147,7 @@ namespace Torpedo
 
         }
 
-        public void LoadPlayerShips(Button[,] buttons)
+        public void LoadPlayerShips(Button[,] buttons, bool isPlayer)
         {
             invalidPositions = new List<Vector>();
             List<Ship> shipPositions = new List<Ship>();
@@ -179,10 +179,20 @@ namespace Torpedo
                 shipPositions.AddRange(GenerateShipPositions(invalidPositions, i, random.Next(), name));
             }
 
-            foreach (var i in shipPositions)
+            if (isPlayer)
             {
-                buttons[i.x, i.y].Background = Brushes.MediumSeaGreen;
-                buttons[i.x, i.y].Name = "btn_" + i.x + "_" + i.y + "_" + i.name;
+                foreach (var i in shipPositions)
+                {
+                    buttons[i.x, i.y].Background = Brushes.MediumSeaGreen;
+                    buttons[i.x, i.y].Name = "btn_" + i.x + "_" + i.y + "_" + i.name;
+                }
+            }
+            else
+            {
+                foreach (var i in shipPositions)
+                {
+                    buttons[i.x, i.y].Name = "btn_" + i.x + "_" + i.y + "_" + i.name;
+                }
             }
         }
 

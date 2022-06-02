@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Torpedo"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="1000">
     <Grid>
-            
+        <Grid Width="840" HorizontalAlignment="Left" Margin="130,0,0,0">
+            <Canvas Name="playerCanvas" Height="400" Width="400" HorizontalAlignment="Left"></Canvas>
+            <Canvas Name="computerCanvas" Height="400" Width="400" HorizontalAlignment="Right" ></Canvas>
+        </Grid>
+
     </Grid>
 </UserControl>
