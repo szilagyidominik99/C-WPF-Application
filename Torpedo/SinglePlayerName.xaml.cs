@@ -28,9 +28,13 @@ namespace Torpedo
 
         private void OnStartGame(object sender, RoutedEventArgs e)
         {
-            if(playerName.Text.Equals(""))
+            if (playerName.Text.Equals(""))
             {
                 MessageBox.Show("Give your name!");
+            }
+            else if (MultiplayersName.HasSpecialChars(playerName.Text))
+            {
+                MessageBox.Show("Give me your name witouth a spacial character!");
             }
             else
             {

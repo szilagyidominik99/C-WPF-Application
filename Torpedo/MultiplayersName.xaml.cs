@@ -43,7 +43,7 @@ namespace Torpedo
             }
 
         }
-        private static bool HasSpecialChars(string yourString)
+        public static bool HasSpecialChars(string yourString)
         {
             return yourString.Any(ch => !Char.IsLetterOrDigit(ch));
         }
