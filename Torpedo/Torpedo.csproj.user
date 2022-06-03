@@ -16,7 +16,13 @@
     <Compile Update="MultiPlayer2.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MultiplayersName.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="SinglePlayer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SinglePlayerName.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -33,7 +39,13 @@
     <Page Update="MultiPlayer2.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MultiplayersName.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="SinglePlayer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SinglePlayerName.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

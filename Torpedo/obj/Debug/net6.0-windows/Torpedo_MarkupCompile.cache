@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\
+D:\Új mappa (3)\Torpedo\obj\Debug\net6.0-windows\
 Torpedo
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Tanulás\code\Torpedo\Torpedo\App.xaml
-51439296774
+D:\Új mappa (3)\Torpedo\App.xaml
+71584648134
 
-8-147416221
+10-1662814769
 1941905061893
-MainWindow.xaml;MapGenerator.xaml;MultiPlayer1.xaml;MultiPlayer2.xaml;SinglePlayer.xaml;
+MainWindow.xaml;MapGenerator.xaml;MultiPlayer1.xaml;MultiPlayer2.xaml;MultiplayersName.xaml;SinglePlayer.xaml;SinglePlayerName.xaml;
 
 False
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Torpedo"
         mc:Ignorable="d"
-        Title="BattleShip" Height="550" Width="1000" >
+        Title="BattleShip" Height="600" Width="1000" >
     <Window.Background>
         <ImageBrush ImageSource="/water.jpg"></ImageBrush>
     </Window.Background>

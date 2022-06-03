@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Dani\\.nuget\\packages\\": {}
+    "C:\\Users\\szila\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Tanulás\\code\\Torpedo\\Torpedo\\Torpedo.csproj",
+      "projectUniqueName": "D:\\Új mappa (3)\\Torpedo\\Torpedo.csproj",
       "projectName": "Torpedo",
-      "projectPath": "D:\\Tanulás\\code\\Torpedo\\Torpedo\\Torpedo.csproj",
-      "packagesPath": "C:\\Users\\Dani\\.nuget\\packages\\",
-      "outputPath": "D:\\Tanulás\\code\\Torpedo\\Torpedo\\obj\\",
+      "projectPath": "D:\\Új mappa (3)\\Torpedo\\Torpedo.csproj",
+      "packagesPath": "C:\\Users\\szila\\.nuget\\packages\\",
+      "outputPath": "D:\\Új mappa (3)\\Torpedo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\szila\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

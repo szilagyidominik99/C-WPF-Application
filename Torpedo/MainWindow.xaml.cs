@@ -25,6 +25,8 @@ namespace Torpedo
         MultiPlayer2 mPlayer2 = new MultiPlayer2();
         SinglePlayer sPlayer = new SinglePlayer();
         MapGenerator mapGenerator = new MapGenerator();
+        MultiplayersName multiplayersName = new MultiplayersName();
+        SinglePlayerName singlePlayerName = new SinglePlayerName();
         Button[,] player1Buttons = new Button[10, 10];
         Button[,] player2Buttons = new Button[10, 10];
         Button[,] player1ButtonsClickEnable = new Button[10, 10];
@@ -62,6 +64,7 @@ namespace Torpedo
 
         private void OnStartMultiPlayerMode(object sender, RoutedEventArgs e)
         {
+    
             StartMultiPlayerGame();
         }
 
@@ -69,7 +72,9 @@ namespace Torpedo
         {
             Content = grid;
             grid.Children.Clear();
-            grid.Children.Add(sPlayer);
+            grid.Children.Add(singlePlayerName);
+            singlePlayerName.startSP += Player;
+            
 
             mapGenerator.GenerateEmptyMap(sPlayer.playerCanvas, player1Buttons);
             mapGenerator.GenerateEmptyMap(sPlayer.computerCanvas, player2Buttons);
@@ -80,12 +85,20 @@ namespace Torpedo
             GetSPClickedButton();
         }
 
+        private void Player(object? sender, EventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(sPlayer);
+            sPlayer.playerLabel.Content = singlePlayerName.playerName.Text;
+        }
+
         public void StartMultiPlayerGame()
         {
             Content = grid;
             grid.Children.Clear();
-            grid.Children.Add(mPlayer1);
-            mPlayer1.player1 += Player2;
+            grid.Children.Add(multiplayersName);
+            
+            multiplayersName.startMP += Player1;
 
             mapGenerator.GenerateEmptyMap(mPlayer1.player1Canvas, player1Buttons);
             mapGenerator.GenerateEmptyMap(mPlayer1.player1CanvasHelper, player2ButtonsClickEnable);
@@ -101,14 +114,11 @@ namespace Torpedo
             GetMPClickedButton();
         }
 
-        private void Player(object? sender, EventArgs e)
-        {
-            grid.Children.Clear();
-            grid.Children.Add(sPlayer);
-        }
+       
 
         private void Player1(object? sender, EventArgs e)
         {
+            mPlayer1.player1Label.Content = multiplayersName.player1Name.Text;
             mPlayer2.player2 -= Player1;
             grid.Children.Clear();
             grid.Children.Add(mPlayer1);
@@ -117,6 +127,7 @@ namespace Torpedo
 
         private void Player2(object? sender, EventArgs e)
         {
+            mPlayer2.player2Label.Content = multiplayersName.player2Name.Text;
             mPlayer1.player1 -= Player2;
             grid.Children.Clear();
             grid.Children.Add(mPlayer2);

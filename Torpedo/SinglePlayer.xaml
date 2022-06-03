@@ -7,9 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="1000">
     <Grid>
-        <Grid Width="840" HorizontalAlignment="Left" Margin="130,0,0,0">
-            <Canvas Name="playerCanvas" Height="400" Width="400" HorizontalAlignment="Left"></Canvas>
-            <Canvas Name="computerCanvas" Height="400" Width="400" HorizontalAlignment="Right" ></Canvas>
+        <Grid Width="840">
+            <Canvas Name="playerCanvas" Height="400" Width="400" HorizontalAlignment="Left" Margin="0,100,0,50"></Canvas>
+            <Canvas Name="computerCanvas" Height="400" Width="400" HorizontalAlignment="Right" Margin="0,100,0,50" ></Canvas>
+            <Label Name ="playerLabel" Width="100" Height="40" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="150,30,590,0"></Label>
+            <Label Content="Computer" Width="100" Height="40" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="590,30,150,0" ></Label>
         </Grid>
 
     </Grid>
