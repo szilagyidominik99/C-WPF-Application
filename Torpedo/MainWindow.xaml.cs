@@ -261,6 +261,7 @@ namespace Torpedo
                     System.Diagnostics.Debug.WriteLine("RANDOM MISS: " + player1Buttons[x, y].Name);
                     invalidPositions.Add(new Vector(x, y));
                     player1Buttons[x, y].Background = Brushes.DarkGray;
+                    //computerMoves();
                     break;
             }
         }
@@ -310,6 +311,29 @@ namespace Torpedo
 
             x = (int)(secondHit.X);
             y = (int)(secondHit.Y);
+
+            if (invalidPositions.Contains(new Vector(x, y)))
+            {
+                if (x == 10)
+                {
+                    secondHit.X = firstHit.X - 1;
+                }
+                if (y == 10)
+                {
+                    secondHit.Y = firstHit.Y - 1;
+                }
+                if (x == -1)
+                {
+                    secondHit.X = firstHit.X + 1;
+                }
+                if (y == -1)
+                {
+                    secondHit.Y = firstHit.Y + 1;
+                }
+
+                x = (int)(secondHit.X);
+                y = (int)(secondHit.Y);
+            }
 
             string[] splited = player1Buttons[x, y].Name.Split("_");
 
@@ -406,6 +430,7 @@ namespace Torpedo
                     nextHitFlag = false;
                     invalidPositions.Add(new Vector(x, y));
                     player1Buttons[x, y].Background = Brushes.DarkGray;
+                    //computerMoves();
                     break;
 
             }
