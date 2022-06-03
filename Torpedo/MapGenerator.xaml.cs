@@ -155,7 +155,7 @@ namespace Torpedo
 
             string name;
             //  "Destroyer", "Cruiser", "Submarine", "Battleship", "Carrier"
-            for (int i = 5; i > 0; i--)
+            for (int i = 5; i > 1; i--)
             {
                 switch (i)
                 {
@@ -168,16 +168,15 @@ namespace Torpedo
                     case 3:
                         name = "Submarine";
                         break;
-                    case 2:
-                        name = "Cruiser";
-                        break;
                     default:
-                        name = "Destroyer";
+                        name = "Cruiser";
                         break;
                 }
 
                 shipPositions.AddRange(GenerateShipPositions(invalidPositions, i, random.Next(), name));
             }
+
+            shipPositions.AddRange(GenerateShipPositions(invalidPositions, 3, random.Next(), "Destroyer"));
 
             if (isPlayer)
             {
@@ -192,6 +191,7 @@ namespace Torpedo
                 foreach (var i in shipPositions)
                 {
                     buttons[i.x, i.y].Name = "btn_" + i.x + "_" + i.y + "_" + i.name;
+                    //buttons[i.x, i.y].Background = Brushes.Blue;
                 }
             }
         }

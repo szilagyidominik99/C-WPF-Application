@@ -246,3 +246,7 @@ D:\Új mappa (3)\Torpedo\obj\Debug\net6.0-windows\MultiplayersName.g.cs
 D:\Új mappa (3)\Torpedo\obj\Debug\net6.0-windows\MultiplayersName.baml
 D:\Új mappa (3)\Torpedo\obj\Debug\net6.0-windows\SinglePlayerName.g.cs
 D:\Új mappa (3)\Torpedo\obj\Debug\net6.0-windows\SinglePlayerName.baml
+D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MultiplayersName.g.cs
+D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\SinglePlayerName.g.cs
+D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\MultiplayersName.baml
+D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\SinglePlayerName.baml
