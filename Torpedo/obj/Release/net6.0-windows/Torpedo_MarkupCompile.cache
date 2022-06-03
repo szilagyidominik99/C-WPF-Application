@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Gönczy\source\repos\C-WPF-Application1234\Torpedo\obj\Release\net6.0-windows\
+C:\Users\Gönczy\source\repos\C-WPF-Application_eyo\Torpedo\obj\Release\net6.0-windows\
 Torpedo
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\Gönczy\source\repos\C-WPF-Application1234\Torpedo\App.xaml
-6-1832730942
+C:\Users\Gönczy\source\repos\C-WPF-Application_eyo\Torpedo\App.xaml
+71584648134
 
-9-947156751
+10-1662814769
 1941905061893
-MainWindow.xaml;MapGenerator.xaml;MultiPlayer1.xaml;MultiPlayer2.xaml;SelectGameMode.xaml;SinglePlayer.xaml;
+MainWindow.xaml;MapGenerator.xaml;MultiPlayer1.xaml;MultiPlayer2.xaml;MultiplayersName.xaml;SinglePlayer.xaml;SinglePlayerName.xaml;
 
 True
 

@@ -28,17 +28,26 @@ namespace Torpedo
 
         private void OnStartGame(object sender, RoutedEventArgs e)
         {
-            if (player1Name.Text.Equals("") || player2Name.Text.Equals(""))
+
+            // player1Name.Text.Equals("") || player2Name.Text.Equals("") ||
+            if (HasSpecialChars(player1Name.Text) || HasSpecialChars(player2Name.Text))
+            {
+                MessageBox.Show("Give me your name witouth a spacial character!");
+            }
+            else if(player1Name.Text.Equals("") || player2Name.Text.Equals(""))
             {
                 MessageBox.Show("Give your name!");
-            }
-            else
+            }else
             {
                 startMP(this, e);
             }
-            
-        }
 
-       
+        }
+        private static bool HasSpecialChars(string yourString)
+        {
+            return yourString.Any(ch => !Char.IsLetterOrDigit(ch));
+        }
     }
+
 }
+
