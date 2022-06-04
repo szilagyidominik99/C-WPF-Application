@@ -26,10 +26,5 @@ namespace Torpedo
         {
             InitializeComponent();
         }
-
-        public void Player(object sender, RoutedEventArgs e)
-        {
-            singlePlayer(this, e);
-        }
     }
 }
