@@ -220,6 +220,7 @@ namespace Torpedo
                     btn.Name = "btn_" + i.ToString() + "_" + j.ToString() + "_Water";
                     btn.Height = canvas.Height / 10;
                     btn.Width = canvas.Width / 10;
+                    btn.Background = Brushes.LightGray;
                     buttons[i, j] = btn;
                     Canvas.SetLeft(buttons[i, j], width);
                     Canvas.SetTop(buttons[i, j], height);

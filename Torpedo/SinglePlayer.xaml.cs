@@ -22,9 +22,46 @@ namespace Torpedo
     {
 
         public event EventHandler singlePlayer;
+
+        int cnt = 0;
+
         public SinglePlayer()
         {
             InitializeComponent();
+            
+        }
+
+        private void Grid_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.S)
+            {
+                if(cnt % 2 == 0)
+                {
+                    ShowShips();
+                }
+                else
+                {
+                    HideShips();
+                }
+                cnt++;
+            }
+        }
+
+        public void ShowShips()
+        {
+            System.Diagnostics.Debug.WriteLine("Show ships");
+            SinglePlayerName.ShowShips();
+        }
+
+        public void HideShips()
+        {
+            System.Diagnostics.Debug.WriteLine("Hide ships");
+            SinglePlayerName.HideShips();
+        }
+
+        private void Loaded(object sender, RoutedEventArgs e)
+        {
+            name.Focus();
         }
     }
 }

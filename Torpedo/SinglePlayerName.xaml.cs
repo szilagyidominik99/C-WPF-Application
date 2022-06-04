@@ -27,8 +27,8 @@ namespace Torpedo
         MapGenerator mapGenerator = new MapGenerator();
         SinglePlayer singlePlayer = new SinglePlayer();
 
-        Button[,] player1Buttons = new Button[10, 10];
-        Button[,] player2Buttons = new Button[10, 10];
+        static Button[,] player1Buttons = new Button[10, 10];
+        static Button[,] player2Buttons = new Button[10, 10];
 
         Vector firstHit = new Vector();
         Vector secondHit = new Vector();
@@ -488,5 +488,36 @@ namespace Torpedo
             }
         }
 
+        public static void ShowShips()
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                for(int j = 0; j < 10; j++)
+                {
+                    string[] splited = player2Buttons[i, j].Name.Split("_");
+
+                    if(splited[3] != "Water" && player2Buttons[i, j].Background != Brushes.Red)
+                    {
+                        player2Buttons[i, j].Background = Brushes.Blue;
+                    }
+                }
+            }
+        }
+
+        public static void HideShips()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (player2Buttons[i, j].Background == Brushes.Blue)
+                    {
+                        player2Buttons[i, j].Background = Brushes.LightGray;
+                    }
+                }
+            }
+        }
+
     }
+
 }

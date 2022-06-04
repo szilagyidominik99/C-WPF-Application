@@ -77,10 +77,6 @@ namespace Torpedo
         {
             return yourString.Any(ch => !Char.IsLetterOrDigit(ch));
         }
-        async Task PutTaskDelay(int miliseconds)
-        {
-            await Task.Delay(miliseconds);
-        }
 
         public void StartMultiPlayerGame()
         {
