@@ -14,6 +14,8 @@
             <Canvas Name="player1Canvas" Height="400" Width="400" HorizontalAlignment="Left" ></Canvas>
             <Canvas Name="player1CanvasHelper" Height="400" Width="400" HorizontalAlignment="Right"></Canvas>
             <Button Content="Other Player" Height="30" Width="100" Click="Player1" VerticalAlignment="Bottom" Margin="590,0,150,33"></Button>
+            <Button Name="againButton1" Height="30" Width="100" Content="Again" HorizontalAlignment="Left" Margin="100,0,0,33" VerticalAlignment="Bottom" />
+            <Button Name="exitButton1" Height="30" Width="100" Content="Exit" HorizontalAlignment="Left" Margin="236,0,0,33" VerticalAlignment="Bottom" />
         </Grid>
 
 

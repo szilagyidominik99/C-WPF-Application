@@ -388,3 +388,40 @@ D:\Tanulás\codeTorpedo\Torpedo\obj\Debug\net6.0-windows\Torpedo.genruntimeconfi
 D:\Tanulás\codeTorpedo\Torpedo\obj\Debug\net6.0-windows\ref\Torpedo.dll
 D:\Tanulás\code\Torpedo\Torpedo\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.CopyComplete
+D:\Új mappa (5)\Torpedo\bin\Debug\net6.0-windows\Torpedo.exe
+D:\Új mappa (5)\Torpedo\bin\Debug\net6.0-windows\Torpedo.deps.json
+D:\Új mappa (5)\Torpedo\bin\Debug\net6.0-windows\Torpedo.runtimeconfig.json
+D:\Új mappa (5)\Torpedo\bin\Debug\net6.0-windows\Torpedo.dll
+D:\Új mappa (5)\Torpedo\bin\Debug\net6.0-windows\Torpedo.pdb
+D:\Új mappa (5)\Torpedo\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.AssemblyReference.cache
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MainWindow.g.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MapGenerator.g.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MultiPlayer1.g.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MultiPlayer2.g.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MultiplayersName.g.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\SinglePlayer.g.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\SinglePlayerName.g.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\App.g.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo_MarkupCompile.cache
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo_MarkupCompile.lref
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MainWindow.baml
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MapGenerator.baml
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MultiPlayer1.baml
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MultiPlayer2.baml
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\MultiplayersName.baml
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\SinglePlayer.baml
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\SinglePlayerName.baml
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.g.resources
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.GeneratedMSBuildEditorConfig.editorconfig
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.AssemblyInfoInputs.cache
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.AssemblyInfo.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.CoreCompileInputs.cache
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.CopyComplete
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.dll
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\refint\Torpedo.dll
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.pdb
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\Torpedo.genruntimeconfig.cache
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\ref\Torpedo.dll
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\ShowScores.g.cs
+D:\Új mappa (5)\Torpedo\obj\Debug\net6.0-windows\ShowScores.baml

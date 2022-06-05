@@ -31,13 +31,14 @@ namespace Torpedo
         MapGenerator mapGenerator = new MapGenerator();
         MultiPlayer1 player1 = new MultiPlayer1();
         MultiPlayer2 player2 = new MultiPlayer2();
+        ShowScores showScores = new ShowScores();
         Button[,] player1Buttons = new Button[10, 10];
         Button[,] player2Buttons = new Button[10, 10];
         Button[,] player1ButtonsClickEnable = new Button[10, 10];
         Button[,] player2ButtonsClickEnable = new Button[10, 10];
         List<Player> _data = new List<Player>();
 
-        string AuthenticationFileName = @"C:\c#\data.json";
+        string AuthenticationFileName = @"D:\data.json";
  
         int destroyer1 = 3;
         int destroyer2 = 3;
@@ -81,6 +82,10 @@ namespace Torpedo
 
         public void StartMultiPlayerGame()
         {
+            player1.againButton1.Visibility = Visibility.Hidden;
+            player2.againButton2.Visibility = Visibility.Hidden;
+            player1.exitButton1.Visibility = Visibility.Hidden;
+            player2.exitButton2.Visibility = Visibility.Hidden;
             startMP += Player1;
             Content = grid;
             System.Diagnostics.Debug.WriteLine("Multiplayer started");
@@ -99,8 +104,21 @@ namespace Torpedo
         }
 
         private void AfterWin()
-        {          
-          File.WriteAllText(AuthenticationFileName, JsonConvert.SerializeObject(_data));
+        {
+
+            player1.againButton1.Visibility = Visibility.Visible;
+            player2.againButton2.Visibility = Visibility.Visible;
+            player1.exitButton1.Visibility = Visibility.Visible;
+            player2.exitButton2.Visibility = Visibility.Visible;
+
+            player1.againButton1.Click += AgainButton_Click;
+            player2.againButton2.Click += AgainButton_Click;
+
+            player1.exitButton1.Click += ExitButton_Click;
+            player2.exitButton2.Click += ExitButton_Click;
+
+            File.WriteAllText(AuthenticationFileName, JsonConvert.SerializeObject(_data));
+            
 
             var jsonData = System.IO.File.ReadAllText(AuthenticationFileName);
 
@@ -149,12 +167,19 @@ namespace Torpedo
             jsonData = JsonConvert.SerializeObject(dat);
             System.IO.File.WriteAllText(AuthenticationFileName, jsonData);
 
-            MultiplayersName repeat = new MultiplayersName();
-            Content = grid;
-            grid.Children.Clear();
-            grid.Children.Add(repeat);
             
-            //OnStartMultiPlayerMode
+        }
+
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(showScores);
+        }
+
+        private void AgainButton_Click(object sender, RoutedEventArgs e)
+        {
+           StartMultiPlayerGame();
         }
 
         private void Player1(object? sender, EventArgs e)
