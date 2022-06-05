@@ -18,11 +18,14 @@ namespace Torpedo
     /// <summary>
     /// Interaction logic for ShowScores.xaml
     /// </summary>
+    /// 
     public partial class ShowScores : UserControl
     {
         public ShowScores()
         {
             InitializeComponent();
         }
+
+
     }
 }

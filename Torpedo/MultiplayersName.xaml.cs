@@ -38,8 +38,10 @@ namespace Torpedo
         Button[,] player2ButtonsClickEnable = new Button[10, 10];
         List<Player> _data = new List<Player>();
 
-        string AuthenticationFileName = @"D:\data.json";
- 
+        
+        //string workingDirectory = Environment.CurrentDirectory ;
+        string AuthenticationFileName = Environment.CurrentDirectory + @"\data.json";
+
         int destroyer1 = 3;
         int destroyer2 = 3;
         int cruiser1 = 2;
@@ -117,8 +119,10 @@ namespace Torpedo
             player1.exitButton1.Click += ExitButton_Click;
             player2.exitButton2.Click += ExitButton_Click;
 
-            File.WriteAllText(AuthenticationFileName, JsonConvert.SerializeObject(_data));
-            
+            if (!File.Exists(AuthenticationFileName))
+            {
+                File.WriteAllText(AuthenticationFileName, JsonConvert.SerializeObject(_data));
+            }
 
             var jsonData = System.IO.File.ReadAllText(AuthenticationFileName);
 
@@ -143,11 +147,15 @@ namespace Torpedo
                 p2.Score += 1;
             }
 
-            if(dat.Exists(n => n.Name == p1.Name))
+            if (dat.Exists(n => n.Name == p1.Name))
             {
-                dat.Where(n => n.Name == p1.Name)
-                        .Select(n => n.Score += 1);
-            }else
+                if (p1Win)
+                {
+                    dat.Where(w => w.Name == p1.Name).ToList().ForEach(i => i.Score += 1);
+                }
+
+            }
+            else
             {
                 dat.Add(p1);
             }
@@ -155,8 +163,10 @@ namespace Torpedo
 
             if (dat.Exists(n => n.Name == p2.Name))
             {
-                dat.Where(n => n.Name == p2.Name)
-                        .Select(n => n.Score += 1);
+                if (!p1Win)
+                {
+                    dat.Where(w => w.Name == p2.Name).ToList().ForEach(i => i.Score += 1);
+                }
             }
             else
             {
@@ -175,11 +185,24 @@ namespace Torpedo
         {
             grid.Children.Clear();
             grid.Children.Add(showScores);
+            var jsonData = System.IO.File.ReadAllText(AuthenticationFileName);
+
+            var Jdata = JsonConvert.DeserializeObject<List<Player>>(jsonData)
+                                  ?? new List<Player>();
+
+            foreach(Player asd in Jdata)
+            {
+                showScores.listB.Items.Add(asd.ToString());
+            }
+            
         }
 
         private void AgainButton_Click(object sender, RoutedEventArgs e)
         {
-           StartMultiPlayerGame();
+            MultiplayersName repeat = new MultiplayersName();
+            Content = grid;
+            grid.Children.Clear();
+            grid.Children.Add(repeat);
         }
 
         private void Player1(object? sender, EventArgs e)

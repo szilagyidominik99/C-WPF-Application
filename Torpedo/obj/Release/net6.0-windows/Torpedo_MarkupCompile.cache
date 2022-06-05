@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\c#\C-WPF-Application\Torpedo\obj\Release\net6.0-windows\
+C:\c#\C-WPF-Application_hat_csak\Torpedo\obj\Release\net6.0-windows\
 Torpedo
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\c#\C-WPF-Application\Torpedo\App.xaml
-71584648134
+C:\c#\C-WPF-Application_hat_csak\Torpedo\App.xaml
+81661239108
 
-1118923958
+13122579474
 195-1671026274
-MainWindow.xaml;MapGenerator.xaml;MultiPlayer1.xaml;MultiPlayer2.xaml;MultiplayersName.xaml;SinglePlayer.xaml;SinglePlayerName.xaml;
+MainWindow.xaml;MapGenerator.xaml;MultiPlayer1.xaml;MultiPlayer2.xaml;MultiplayersName.xaml;ShowScores.xaml;SinglePlayer.xaml;SinglePlayerName.xaml;
 
 True
 

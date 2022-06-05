@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "76enPgWFI1O1PPQI3QE01twdwHUvfBogn/d0+sw5zf6H9oSIEVwavaacHU2rkans4R4sZWywzEck+159zMlJmg==",
+  "dgSpecHash": "XQvfqLTqjB7HYM7HAL15RPnHMuR/Rc+Ust/Wb5ojrZB14Klad8u/0ayVylOBCmpai2GTnxcN6+c1GRPvjfJ40Q==",
   "success": true,
-  "projectFilePath": "D:\\Új mappa (5)\\Torpedo\\Torpedo.csproj",
+  "projectFilePath": "C:\\c#\\C-WPF-Application_hat_csak\\Torpedo\\Torpedo.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\szila\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\Gönczy\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
