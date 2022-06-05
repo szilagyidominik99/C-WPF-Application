@@ -14,7 +14,7 @@ namespace Torpedo
 
         public override string? ToString()
         {
-            return Name + " " + Score;
+            return "Player:\t" +Name + "\t\t\t Total Wins:\t" + Score;
         }
     }
 

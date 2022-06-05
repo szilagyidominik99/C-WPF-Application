@@ -29,13 +29,17 @@ namespace Torpedo
 
         static Button[,] player1Buttons = new Button[10, 10];
         static Button[,] player2Buttons = new Button[10, 10];
+        List<string> pShips = new List<string>();
+        List<string> cShips = new List<string>();
 
         Vector firstHit = new Vector();
         Vector secondHit = new Vector();
         List<Vector> invalidPositions = new List<Vector>();
 
-        Scores pScores = new Scores(0, 0, 5);
-        Scores cScores = new Scores(0, 0, 5);
+
+
+        Scores pScores;
+        Scores cScores;
 
         int destroyer1 = 3;
         int destroyer2 = 3;
@@ -51,8 +55,6 @@ namespace Torpedo
         int pMisses = 0;
         int cHits = 0;
         int cMisses = 0;
-        int pShips = 5;
-        int cShips = 5;
 
         bool hunterMode = false;
         bool nextHitFlag = false;
@@ -107,6 +109,21 @@ namespace Torpedo
             mapGenerator.LoadPlayerShips(player2Buttons, false);
 
             await PutTaskDelay(200);
+
+            pShips.Add("Carrier");
+            pShips.Add("Battleship");
+            pShips.Add("Cruiser");
+            pShips.Add("Submarine");
+            pShips.Add("Destroyer");
+
+            cShips.Add("Carrier");
+            cShips.Add("Battleship");
+            cShips.Add("Cruiser");
+            cShips.Add("Submarine");
+            cShips.Add("Destroyer");
+
+            Scores pScores = new Scores(0, 0, pShips);
+            Scores cScores = new Scores(0, 0, cShips);
 
             CalcScores();
 
@@ -179,7 +196,7 @@ namespace Torpedo
                 y = random.Next(0, 10);
 
             } while (invalidPositions.Contains(new Vector(x, y)));
-            
+
             string[] splited = player1Buttons[x, y].Name.Split("_");
 
             switch (splited[3])
@@ -306,17 +323,17 @@ namespace Torpedo
                     secondHit.Y--;
                 }
             }
-            
+
             x = (int)(secondHit.X);
             y = (int)(secondHit.Y);
-            
+
             if (invalidPositions.Contains(new Vector(x, y)))
             {
                 if (firstHit.X < secondHit.X)
                 {
                     secondHit.X = firstHit.X - 1;
                 }
-                else if(firstHit.X > secondHit.X)
+                else if (firstHit.X > secondHit.X)
                 {
                     secondHit.X = firstHit.X + 1;
                 }
@@ -325,7 +342,7 @@ namespace Torpedo
                 {
                     secondHit.Y = firstHit.Y - 1;
                 }
-                else if(firstHit.Y > secondHit.Y)
+                else if (firstHit.Y > secondHit.Y)
                 {
                     secondHit.Y = firstHit.Y + 1;
                 }
@@ -349,7 +366,7 @@ namespace Torpedo
                     if (carrier1 == 0)
                     {
                         MessageBoxResult result = MessageBox.Show("Your Carrier is destroyed ");
-                        pShips--;
+                        pShips.Remove("Carrier");
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
@@ -371,7 +388,7 @@ namespace Torpedo
                     if (battleship1 == 0)
                     {
                         MessageBoxResult result = MessageBox.Show("Your Battleship is destroyed ");
-                        pShips--;
+                        pShips.Remove("Battleship");
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
@@ -393,7 +410,7 @@ namespace Torpedo
                     if (submarine1 == 0)
                     {
                         MessageBoxResult result = MessageBox.Show("Your Submarine is destroyed ");
-                        pShips--;
+                        pShips.Remove("Submarine");
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
@@ -415,7 +432,7 @@ namespace Torpedo
                     if (cruiser1 == 0)
                     {
                         MessageBoxResult result = MessageBox.Show("Your Cruiser is destroyed ");
-                        pShips--;
+                        pShips.Remove("Cruiser");
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
@@ -437,7 +454,7 @@ namespace Torpedo
                     if (destroyer1 == 0)
                     {
                         MessageBoxResult result = MessageBox.Show("Your Destroyer is destroyed ");
-                        pShips--;
+                        pShips.Remove("Destroyer");
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
@@ -460,7 +477,7 @@ namespace Torpedo
 
                     break;
             }
-            if (pShips == 0)
+            if (destroyer1 == 0 && cruiser1 == 0 && submarine1 == 0 && battleship1 == 0 && carrier1 == 0)
             {
                 MessageBoxResult result = MessageBox.Show("You lost!");
                 AfterWin();
@@ -471,7 +488,7 @@ namespace Torpedo
 
         private async void ComputerMoves()
         {
-            await PutTaskDelay(500);
+            await PutTaskDelay(1000);
 
             if (hunterMode) // hunting for a hit ship
             {
@@ -508,7 +525,7 @@ namespace Torpedo
                         if (carrier2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Enemy Carrier destroyed");
-                            cShips--;
+                            cShips.Remove("Carrier");
                         }
 
                         CalcScores();
@@ -522,7 +539,7 @@ namespace Torpedo
                         if (battleship2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Enemy Battleship destroyed ");
-                            cShips--;
+                            cShips.Remove("Battleship");
                         }
 
                         CalcScores();
@@ -536,7 +553,7 @@ namespace Torpedo
                         if (submarine2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Enemy Submarine destroyed ");
-                            cShips--;
+                            cShips.Remove("Submarine");
                         }
 
                         CalcScores();
@@ -550,7 +567,7 @@ namespace Torpedo
                         if (cruiser2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Enemy Cruiser destroyed ");
-                            cShips--;
+                            cShips.Remove("Cruiser");
                         }
 
                         CalcScores();
@@ -564,7 +581,7 @@ namespace Torpedo
                         if (destroyer2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Enemy Destroyer destroyed");
-                            cShips--;
+                            cShips.Remove("Destroyer");
                         }
 
                         CalcScores();
@@ -580,7 +597,7 @@ namespace Torpedo
                         break;
                 }
 
-                if (cShips == 0)
+                if (destroyer2 == 0 && cruiser2 == 0 && submarine2 == 0 && battleship2 == 0 && carrier2 == 0)
                 {
                     MessageBoxResult result = MessageBox.Show("You Win");
                     AfterWin();

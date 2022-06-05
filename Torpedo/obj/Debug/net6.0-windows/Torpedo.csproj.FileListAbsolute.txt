@@ -462,3 +462,5 @@ C:\c#\C-WPF-Application_hat_csak\Torpedo\bin\Debug\net6.0-windows\Newtonsoft.Jso
 C:\c#\C-WPF-Application_hat_csak\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.CopyComplete
 C:\c#\C-WPF-Application_hat_csak\Torpedo\obj\Debug\net6.0-windows\Torpedo.dll
 C:\c#\C-WPF-Application_hat_csak\Torpedo\obj\Debug\net6.0-windows\Torpedo.genruntimeconfig.cache
+D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\ShowScores.g.cs
+D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\ShowScores.baml

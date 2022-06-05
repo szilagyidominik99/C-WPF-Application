@@ -7,7 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1200">
     <Grid>
-       
+        <Grid Width="150" HorizontalAlignment="Left">
+            <Label Name="player2Scores" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="590"></Label>
+        </Grid>
+        <Grid Width="150" HorizontalAlignment="Right">
+            <Label Name="player1Scores" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="590"></Label>
+        </Grid>
         <Grid Width="840" HorizontalAlignment="Center">
             <Label Name ="player2Label" Width="100" Height="40" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" 
                    Margin="0,30,0,0"></Label>

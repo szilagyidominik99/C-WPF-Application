@@ -48,24 +48,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gönczy\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Dani\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\c#\\C-WPF-Application_hat_csak\\Torpedo\\Torpedo.csproj",
+      "projectUniqueName": "D:\\Tanulás\\code\\Torpedo\\Torpedo\\Torpedo.csproj",
       "projectName": "Torpedo",
-      "projectPath": "C:\\c#\\C-WPF-Application_hat_csak\\Torpedo\\Torpedo.csproj",
-      "packagesPath": "C:\\Users\\Gönczy\\.nuget\\packages\\",
-      "outputPath": "C:\\c#\\C-WPF-Application_hat_csak\\Torpedo\\obj\\",
+      "projectPath": "D:\\Tanulás\\code\\Torpedo\\Torpedo\\Torpedo.csproj",
+      "packagesPath": "C:\\Users\\Dani\\.nuget\\packages\\",
+      "outputPath": "D:\\Tanulás\\code\\Torpedo\\Torpedo\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Gönczy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -114,7 +109,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
