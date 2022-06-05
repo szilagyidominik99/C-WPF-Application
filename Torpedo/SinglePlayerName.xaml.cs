@@ -129,6 +129,14 @@ namespace Torpedo
 
             Random random = new Random();
 
+            for (int i = 0; i < 10; i++)
+            {
+                invalidPositions.Add(new Vector(-1, i));
+                invalidPositions.Add(new Vector(i, -1));
+                invalidPositions.Add(new Vector(10, i));
+                invalidPositions.Add(new Vector(i, 10));
+            }
+
             if (random.Next() % 2 == 0)
             {
                 computerTurn = true;
@@ -139,14 +147,6 @@ namespace Torpedo
             {
                 MessageBoxResult result = MessageBox.Show("You start!");
                 computerTurn = false;
-            }
-
-            for (int i = 0; i < 10; i++)
-            {
-                invalidPositions.Add(new Vector(-1, i));
-                invalidPositions.Add(new Vector(i, -1));
-                invalidPositions.Add(new Vector(10, i));
-                invalidPositions.Add(new Vector(i, 10));
             }
 
             GetSPClickedButton();
