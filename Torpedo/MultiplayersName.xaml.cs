@@ -31,18 +31,14 @@ namespace Torpedo
         MapGenerator mapGenerator = new MapGenerator();
         MultiPlayer1 player1 = new MultiPlayer1();
         MultiPlayer2 player2 = new MultiPlayer2();
-
         Button[,] player1Buttons = new Button[10, 10];
         Button[,] player2Buttons = new Button[10, 10];
         Button[,] player1ButtonsClickEnable = new Button[10, 10];
         Button[,] player2ButtonsClickEnable = new Button[10, 10];
-        List<Vector> invalidPositions = new List<Vector>();
         List<Player> _data = new List<Player>();
 
         string AuthenticationFileName = @"C:\c#\data.json";
  
-
-
         int destroyer1 = 3;
         int destroyer2 = 3;
         int cruiser1 = 2;
@@ -53,7 +49,6 @@ namespace Torpedo
         int battleship2 = 4;
         int carrier1 = 5;
         int carrier2 = 5;
-
 
         bool p1Win = true;
         bool playerTurn = false;
@@ -77,8 +72,8 @@ namespace Torpedo
                 StartMultiPlayerGame();
                 startMP(this, e);
             }
-
         }
+
         public static bool HasSpecialChars(string yourString)
         {
             return yourString.Any(ch => !Char.IsLetterOrDigit(ch));
@@ -95,22 +90,16 @@ namespace Torpedo
             mapGenerator.GenerateEmptyMap(player2.player2Canvas, player2Buttons);
             mapGenerator.GenerateEmptyMap(player2.player2CanvasHelper, player1ButtonsClickEnable);
 
-
             mapGenerator.LoadPlayerShips(player1Buttons, true);
             mapGenerator.LoadPlayerShips(player2Buttons, true);
             mapGenerator.LoadEnemyShips(player1ButtonsClickEnable, player1Buttons);
             mapGenerator.LoadEnemyShips(player2ButtonsClickEnable, player2Buttons);
 
             GetMPClickedButton();
-
-
-
-
         }
 
         private void AfterWin()
-        {
-            
+        {          
           File.WriteAllText(AuthenticationFileName, JsonConvert.SerializeObject(_data));
 
             var jsonData = System.IO.File.ReadAllText(AuthenticationFileName);
@@ -156,12 +145,9 @@ namespace Torpedo
                 dat.Add(p2);
             }
 
-
-
             // Update json data string
             jsonData = JsonConvert.SerializeObject(dat);
             System.IO.File.WriteAllText(AuthenticationFileName, jsonData);
-
 
             MultiplayersName repeat = new MultiplayersName();
             Content = grid;
@@ -177,8 +163,7 @@ namespace Torpedo
             player2.player2 -= Player1;
             grid.Children.Clear();
             grid.Children.Add(player1);
-            player1.player1 += Player2;
-            
+            player1.player1 += Player2;       
         }
 
         private void Player2(object? sender, EventArgs e)
@@ -187,8 +172,7 @@ namespace Torpedo
             player1.player1 -= Player2;
             grid.Children.Clear();
             grid.Children.Add(player2);
-            player2.player2 += Player1;
-            
+            player2.player2 += Player1;     
         }
 
         public void GetMPClickedButton()
@@ -204,12 +188,10 @@ namespace Torpedo
         }
 
         private void MultiPlayer1_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {        
             if (playerTurn)
             {
                 Button button = (Button)sender;
-
 
                 string[] splited = button.Name.ToString().Split("_");
                 //  "Destroyer", "Cruiser", "Submarine", "Battleship", "Carrier"
@@ -219,18 +201,22 @@ namespace Torpedo
                     case "Carrier":
                         carrier1--;
                         button.Background = Brushes.Red;
+
                         if (carrier1 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Carrier destroyed ");
                         }
+
                         break;
                     case "Battleship":
                         battleship1--;
                         button.Background = Brushes.Red;
+
                         if (battleship1 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Battleship destroyed ");
                         }
+
                         break;
                     case "Submarine":
                         submarine1--;
@@ -240,27 +226,32 @@ namespace Torpedo
                         {
                             MessageBoxResult result = MessageBox.Show("Submarine destroyed ");
                         }
+
                         break;
                     case "Cruiser":
                         cruiser1--;
-
                         button.Background = Brushes.Red;
+
                         if (cruiser1 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Cruiser destroyed ");
                         }
+
                         break;
                     case "Destroyer":
                         destroyer1--;
                         button.Background = Brushes.Red;
+
                         if (destroyer1 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Destroyer destroyed");
                         }
+
                         break;
                     default:
                         playerTurn = !playerTurn;
                         button.Background = Brushes.DarkGray;
+
                         break;
                 }
 
@@ -272,7 +263,7 @@ namespace Torpedo
                 if (destroyer1 == 0 && cruiser1 == 0 && submarine1 == 0 && battleship1 == 0 && carrier1 == 0)
                 {
                     MessageBoxResult result = MessageBox.Show("You Win");
-                    score1 += 1;
+                    //score1 += 1;
                     AfterWin();
 
                     p1Win = true;
@@ -299,46 +290,57 @@ namespace Torpedo
                     case "Carrier":
                         carrier2--;
                         button.Background = Brushes.Red;
+
                         if (carrier2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Carrier destroyed ");
                         }
+
                         break;
                     case "Battleship":
                         battleship2--;
                         button.Background = Brushes.Red;
+
                         if (battleship2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Battleship destroyed ");
                         }
+
                         break;
                     case "Submarine":
                         submarine2--;
                         button.Background = Brushes.Red;
+
                         if (submarine2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Submarine destroyed ");
                         }
+
                         break;
                     case "Cruiser":
                         cruiser2--;
                         button.Background = Brushes.Red;
+
                         if (cruiser2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Cruiser destroyed ");
                         }
+
                         break;
                     case "Destroyer":
                         destroyer2--;
                         button.Background = Brushes.Red;
+
                         if (destroyer2 == 0)
                         {
                             MessageBoxResult result = MessageBox.Show("Destroyer destroyed");
                         }
+
                         break;
                     default:
                         playerTurn = !playerTurn;
                         button.Background = Brushes.DarkGray;
+
                         break;
                 }
 
@@ -360,10 +362,7 @@ namespace Torpedo
             {
                 MessageBoxResult result = MessageBox.Show("Other player's turn!");
             }
-
         }
-
     }
-
 }
 

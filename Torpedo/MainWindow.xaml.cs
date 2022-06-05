@@ -24,7 +24,6 @@ namespace Torpedo
         SinglePlayerName singlePlayerName = new SinglePlayerName();
         MultiplayersName multiplayerName = new MultiplayersName();
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +34,6 @@ namespace Torpedo
             Content = grid;
             grid.Children.Clear();
             grid.Children.Add(singlePlayerName);
-
         }
 
         public void OnStartMultiPlayerMode(object sender, RoutedEventArgs e)
@@ -44,6 +42,5 @@ namespace Torpedo
             grid.Children.Clear();
             grid.Children.Add(multiplayerName);
         }
-
     }
 }

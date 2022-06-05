@@ -11,6 +11,8 @@ namespace Torpedo
     /// </summary>
     public partial class MapGenerator : UserControl
     {
+        List<Vector> invalidPositions;
+
         List<Vector> AddToList(int x, int y, int len, bool isVertical)
         {
             List<Vector> list = new List<Vector>();
@@ -85,6 +87,7 @@ namespace Torpedo
         {
             Random random = new Random();
             List<Ship> map = new List<Ship>();
+
             int validPlacementCount;
             int x, y;
 
@@ -110,6 +113,7 @@ namespace Torpedo
                 {
                     map.Add(new Ship(x, y + i, name));
                 }
+
                 invalidPositions.AddRange(AddToList(x, y, len, true));
             }
             else                         // horizontal
@@ -127,29 +131,29 @@ namespace Torpedo
                             validPlacementCount++;
                         }
                     }
+
                 } while (validPlacementCount != len);
 
                 for (int i = 0; i < len; i++)
                 {
                     map.Add(new Ship(x + i, y, name));
                 }
+
                 invalidPositions.AddRange(AddToList(x, y, len, false));
             }
+
             return map;
         }
 
-
-
-        List<Vector> invalidPositions;
         public MapGenerator()
         {
             InitializeComponent();
-
         }
 
         public void LoadPlayerShips(Button[,] buttons, bool isPlayer)
         {
             invalidPositions = new List<Vector>();
+
             List<Ship> shipPositions = new List<Ship>();
             Random random = new Random();
 
@@ -214,6 +218,7 @@ namespace Torpedo
             for (int i = 0; i < 10; i++)
             {
                 width = 0;
+
                 for (int j = 0; j < 10; j++)
                 {
                     Button btn = new Button();
@@ -226,13 +231,9 @@ namespace Torpedo
                     Canvas.SetTop(buttons[i, j], height);
                     width += canvas.Width / 10;
                     canvas.Children.Add(btn);
-
                 }
                 height += 40;
-
             }
-
         }
-
     }
 }

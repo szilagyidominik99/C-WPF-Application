@@ -27,8 +27,7 @@ namespace Torpedo
 
         public SinglePlayer()
         {
-            InitializeComponent();
-            
+            InitializeComponent();         
         }
 
         private void Grid_KeyUp(object sender, KeyEventArgs e)

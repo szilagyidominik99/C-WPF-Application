@@ -20,16 +20,12 @@ namespace Torpedo
     /// </summary>
     public partial class MultiPlayer2 : UserControl
     {
-
         public event EventHandler player2;
 
         public MultiPlayer2()
         {
             InitializeComponent();
-
         }
-
-
 
         private void Player2(object sender, RoutedEventArgs e)
         {

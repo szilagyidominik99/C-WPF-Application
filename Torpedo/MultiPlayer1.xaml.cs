@@ -26,7 +26,6 @@ namespace Torpedo
         public MultiPlayer1()
         {
             InitializeComponent();
-
         }
 
         private void Player1(object sender, RoutedEventArgs e)
