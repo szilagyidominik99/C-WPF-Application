@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\
-Torpedo
+C:\c#\C-WPF-Application\Torpedo\obj\Debug\net6.0-windows\
+Torpedo_4i52xfwi_wpftmp
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Tanulás\code\Torpedo\Torpedo\App.xaml
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
+C:\c#\C-WPF-Application\Torpedo\App.xaml
 71584648134
 
-10-1662814769
-1941905061893
+19641958066
+390952914748
 MainWindow.xaml;MapGenerator.xaml;MultiPlayer1.xaml;MultiPlayer2.xaml;MultiplayersName.xaml;SinglePlayer.xaml;SinglePlayerName.xaml;
 
-False
+True
 

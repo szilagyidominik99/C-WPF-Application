@@ -125,6 +125,14 @@ namespace Torpedo
             GetSPClickedButton();
         }
 
+        public void AfterWin()
+        {
+            SinglePlayerName repeat = new SinglePlayerName();
+            Content = grid;
+            grid.Children.Clear();
+            grid.Children.Add(repeat);
+
+        }
         public void GetSPClickedButton()
         {
             for (int i = 0; i < 10; i++)
@@ -390,6 +398,7 @@ namespace Torpedo
             if (destroyer1 == 0 && cruiser1 == 0 && submarine1 == 0 && battleship1 == 0 && carrier1 == 0)
             {
                 MessageBoxResult result = MessageBox.Show("You lost!");
+                AfterWin();
                 return;
             }
         }
@@ -476,8 +485,7 @@ namespace Torpedo
                 if (destroyer2 == 0 && cruiser2 == 0 && submarine2 == 0 && battleship2 == 0 && carrier2 == 0)
                 {
                     MessageBoxResult result = MessageBox.Show("You Win");
-                    score1 += 1;
-                    return;
+                    AfterWin();
                 }
 
                 System.Diagnostics.Debug.WriteLine(button.Name);

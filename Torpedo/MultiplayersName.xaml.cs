@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Torpedo
 {
@@ -33,6 +37,11 @@ namespace Torpedo
         Button[,] player1ButtonsClickEnable = new Button[10, 10];
         Button[,] player2ButtonsClickEnable = new Button[10, 10];
         List<Vector> invalidPositions = new List<Vector>();
+        List<Player> _data = new List<Player>();
+
+        string AuthenticationFileName = @"C:\c#\data.json";
+ 
+
 
         int destroyer1 = 3;
         int destroyer2 = 3;
@@ -45,9 +54,8 @@ namespace Torpedo
         int carrier1 = 5;
         int carrier2 = 5;
 
-        int score1 = 0;
-        int score2 = 0;
 
+        bool p1Win = true;
         bool playerTurn = false;
 
         public MultiplayersName()
@@ -57,8 +65,6 @@ namespace Torpedo
 
         private void OnStartGame(object sender, RoutedEventArgs e)
         {
-
-            // player1Name.Text.Equals("") || player2Name.Text.Equals("") ||
             if (HasSpecialChars(player1Name.Text) || HasSpecialChars(player2Name.Text))
             {
                 MessageBox.Show("Give me your name witouth a spacial character!");
@@ -96,6 +102,73 @@ namespace Torpedo
             mapGenerator.LoadEnemyShips(player2ButtonsClickEnable, player2Buttons);
 
             GetMPClickedButton();
+
+
+
+
+        }
+
+        private void AfterWin()
+        {
+            
+          File.WriteAllText(AuthenticationFileName, JsonConvert.SerializeObject(_data));
+
+            var jsonData = System.IO.File.ReadAllText(AuthenticationFileName);
+
+            var dat = JsonConvert.DeserializeObject<List<Player>>(jsonData)
+                                  ?? new List<Player>();
+
+               //jatekosk hozzadasa
+            Player p1 = new Player();
+            Player p2 = new Player();
+
+            p1.Name = player1Name.Text;
+            p2.Name = player2Name.Text;
+
+            if(p1Win)
+            {
+                p1.Score += 1;
+                p2.Score += 0;
+            }
+            else
+            {
+                p1.Score += 0;
+                p2.Score += 1;
+            }
+
+            if(dat.Exists(n => n.Name == p1.Name))
+            {
+                dat.Where(n => n.Name == p1.Name)
+                        .Select(n => n.Score += 1);
+            }else
+            {
+                dat.Add(p1);
+            }
+
+
+            if (dat.Exists(n => n.Name == p2.Name))
+            {
+                dat.Where(n => n.Name == p2.Name)
+                        .Select(n => n.Score += 1);
+            }
+            else
+            {
+                dat.Add(p2);
+            }
+
+
+
+            // Update json data string
+            jsonData = JsonConvert.SerializeObject(dat);
+            System.IO.File.WriteAllText(AuthenticationFileName, jsonData);
+
+
+            MultiplayersName repeat = new MultiplayersName();
+            Content = grid;
+            grid.Children.Clear();
+            grid.Children.Add(repeat);
+            
+            //OnStartMultiPlayerMode
         }
 
         private void Player1(object? sender, EventArgs e)
@@ -105,6 +178,7 @@ namespace Torpedo
             grid.Children.Clear();
             grid.Children.Add(player1);
             player1.player1 += Player2;
+            
         }
 
         private void Player2(object? sender, EventArgs e)
@@ -114,6 +188,7 @@ namespace Torpedo
             grid.Children.Clear();
             grid.Children.Add(player2);
             player2.player2 += Player1;
+            
         }
 
         public void GetMPClickedButton()
@@ -130,6 +205,7 @@ namespace Torpedo
 
         private void MultiPlayer1_Click(object sender, RoutedEventArgs e)
         {
+            
             if (playerTurn)
             {
                 Button button = (Button)sender;
@@ -197,7 +273,9 @@ namespace Torpedo
                 {
                     MessageBoxResult result = MessageBox.Show("You Win");
                     score1 += 1;
-                    return;
+                    AfterWin();
+
+                    p1Win = true;
                 }
 
                 System.Diagnostics.Debug.WriteLine(button.Name);
@@ -272,8 +350,8 @@ namespace Torpedo
                 if (destroyer2 == 0 && cruiser2 == 0 && submarine2 == 0 && battleship2 == 0 && carrier2 == 0)
                 {
                     MessageBoxResult result = MessageBox.Show("You Win");
-                    score2 += 1;
-                    return;
+                    p1Win = false;
+                    AfterWin();
                 }
 
                 System.Diagnostics.Debug.WriteLine(button.Name);

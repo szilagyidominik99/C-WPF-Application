@@ -38,7 +38,7 @@ namespace Torpedo
 
         }
 
-        private void OnStartMultiPlayerMode(object sender, RoutedEventArgs e)
+        public void OnStartMultiPlayerMode(object sender, RoutedEventArgs e)
         {
             Content = grid;
             grid.Children.Clear();
