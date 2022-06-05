@@ -386,3 +386,5 @@ D:\Tanulás\codeTorpedo\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.CoreComp
 D:\Tanulás\codeTorpedo\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.CopyComplete
 D:\Tanulás\codeTorpedo\Torpedo\obj\Debug\net6.0-windows\Torpedo.genruntimeconfig.cache
 D:\Tanulás\codeTorpedo\Torpedo\obj\Debug\net6.0-windows\ref\Torpedo.dll
+D:\Tanulás\code\Torpedo\Torpedo\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+D:\Tanulás\code\Torpedo\Torpedo\obj\Debug\net6.0-windows\Torpedo.csproj.CopyComplete

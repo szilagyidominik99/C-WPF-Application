@@ -34,6 +34,9 @@ namespace Torpedo
         Vector secondHit = new Vector();
         List<Vector> invalidPositions = new List<Vector>();
 
+        Scores pScores = new Scores(0, 0, 5);
+        Scores cScores = new Scores(0, 0, 5);
+
         int destroyer1 = 3;
         int destroyer2 = 3;
         int cruiser1 = 2;
@@ -44,11 +47,16 @@ namespace Torpedo
         int battleship2 = 4;
         int carrier1 = 5;
         int carrier2 = 5;
+        int pHits = 0;
+        int pMisses = 0;
+        int cHits = 0;
+        int cMisses = 0;
+        int pShips = 5;
+        int cShips = 5;
 
         bool hunterMode = false;
         bool nextHitFlag = false;
         bool computerTurn;
-
 
         public SinglePlayerName()
         {
@@ -79,6 +87,14 @@ namespace Torpedo
             singlePlayer.playerLabel.Content = playerName.Text;
         }
 
+        private void CalcScores()
+        {
+            pScores = new Scores(pHits, pMisses, pShips);
+            cScores = new Scores(cHits, cMisses, cShips);
+            singlePlayer.playerScores.Content = pScores.ToString();
+            singlePlayer.computerScores.Content = cScores.ToString();
+        }
+
         public async void StartSinglePlayerGame()
         {
             startSP += Player;
@@ -91,6 +107,8 @@ namespace Torpedo
             mapGenerator.LoadPlayerShips(player2Buttons, false);
 
             await PutTaskDelay(200);
+
+            CalcScores();
 
             Random random = new Random();
 
@@ -159,6 +177,7 @@ namespace Torpedo
             {
                 x = random.Next(0, 10);
                 y = random.Next(0, 10);
+
             } while (invalidPositions.Contains(new Vector(x, y)));
             
             string[] splited = player1Buttons[x, y].Name.Split("_");
@@ -168,6 +187,8 @@ namespace Torpedo
                 case "Carrier":
                     carrier1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
+                    CalcScores();
                     System.Diagnostics.Debug.WriteLine("RANDOM HIT: " + player1Buttons[x, y].Name);
                     firstHit = new Vector(x, y);
                     AddToInvalidPositions(x, y);
@@ -178,6 +199,8 @@ namespace Torpedo
                 case "Battleship":
                     battleship1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
+                    CalcScores();
                     System.Diagnostics.Debug.WriteLine("RANDOM HIT: " + player1Buttons[x, y].Name);
                     firstHit = new Vector(x, y);
                     AddToInvalidPositions(x, y);
@@ -188,6 +211,8 @@ namespace Torpedo
                 case "Submarine":
                     submarine1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
+                    CalcScores();
                     System.Diagnostics.Debug.WriteLine("RANDOM HIT: " + player1Buttons[x, y].Name);
                     firstHit = new Vector(x, y);
                     AddToInvalidPositions(x, y);
@@ -198,6 +223,8 @@ namespace Torpedo
                 case "Cruiser":
                     cruiser1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
+                    CalcScores();
                     System.Diagnostics.Debug.WriteLine("RANDOM HIT: " + player1Buttons[x, y].Name);
                     firstHit = new Vector(x, y);
                     AddToInvalidPositions(x, y);
@@ -208,6 +235,8 @@ namespace Torpedo
                 case "Destroyer":
                     destroyer1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
+                    CalcScores();
                     System.Diagnostics.Debug.WriteLine("RANDOM HIT: " + player1Buttons[x, y].Name);
                     firstHit = new Vector(x, y);
                     AddToInvalidPositions(x, y);
@@ -217,6 +246,8 @@ namespace Torpedo
                     break;
                 default:
                     computerTurn = !computerTurn;
+                    cMisses++;
+                    CalcScores();
                     System.Diagnostics.Debug.WriteLine("RANDOM MISS: " + player1Buttons[x, y].Name);
                     player1Buttons[x, y].Background = Brushes.DarkGray;
                     invalidPositions.Add(new Vector(x, y));
@@ -310,18 +341,21 @@ namespace Torpedo
                 case "Carrier":
                     carrier1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
                     nextHitFlag = true;
                     invalidPositions.Add(new Vector(x, y));
                     System.Diagnostics.Debug.WriteLine("AI HIT: " + player1Buttons[x, y].Name);
 
                     if (carrier1 == 0)
                     {
-                        MessageBoxResult result = MessageBox.Show("Carrier destroyed ");
+                        MessageBoxResult result = MessageBox.Show("Your Carrier is destroyed ");
+                        pShips--;
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
                     }
 
+                    CalcScores();
                     AddToInvalidPositions(x, y);
                     ComputerMoves();
 
@@ -329,18 +363,21 @@ namespace Torpedo
                 case "Battleship":
                     battleship1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
                     nextHitFlag = true;
                     invalidPositions.Add(new Vector(x, y));
                     System.Diagnostics.Debug.WriteLine("AI HIT: " + player1Buttons[x, y].Name);
 
                     if (battleship1 == 0)
                     {
-                        MessageBoxResult result = MessageBox.Show("battleship destroyed ");
+                        MessageBoxResult result = MessageBox.Show("Your Battleship is destroyed ");
+                        pShips--;
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
                     }
 
+                    CalcScores();
                     AddToInvalidPositions(x, y);
                     ComputerMoves();
 
@@ -348,18 +385,21 @@ namespace Torpedo
                 case "Submarine":
                     submarine1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
                     nextHitFlag = true;
                     invalidPositions.Add(new Vector(x, y));
                     System.Diagnostics.Debug.WriteLine("AI HIT: " + player1Buttons[x, y].Name);
 
                     if (submarine1 == 0)
                     {
-                        MessageBoxResult result = MessageBox.Show("Submarine destroyed ");
+                        MessageBoxResult result = MessageBox.Show("Your Submarine is destroyed ");
+                        pShips--;
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
                     }
 
+                    CalcScores();
                     AddToInvalidPositions(x, y);
                     ComputerMoves();
 
@@ -367,18 +407,21 @@ namespace Torpedo
                 case "Cruiser":
                     cruiser1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
                     nextHitFlag = true;
                     invalidPositions.Add(new Vector(x, y));
                     System.Diagnostics.Debug.WriteLine("AI HIT: " + player1Buttons[x, y].Name);
 
                     if (cruiser1 == 0)
                     {
-                        MessageBoxResult result = MessageBox.Show("cruiser destroyed ");
+                        MessageBoxResult result = MessageBox.Show("Your Cruiser is destroyed ");
+                        pShips--;
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
                     }
 
+                    CalcScores();
                     AddToInvalidPositions(x, y);
                     ComputerMoves();
 
@@ -386,24 +429,29 @@ namespace Torpedo
                 case "Destroyer":
                     destroyer1--;
                     player1Buttons[x, y].Background = Brushes.Red;
+                    cHits++;
                     nextHitFlag = true;
                     invalidPositions.Add(new Vector(x, y));
                     System.Diagnostics.Debug.WriteLine("AI HIT: " + player1Buttons[x, y].Name);
 
                     if (destroyer1 == 0)
                     {
-                        MessageBoxResult result = MessageBox.Show("destroyer destroyed ");
+                        MessageBoxResult result = MessageBox.Show("Your Destroyer is destroyed ");
+                        pShips--;
                         nextHitFlag = false;
                         hunterMode = false;
                         secondHit = new Vector();
                     }
 
+                    CalcScores();
                     AddToInvalidPositions(x, y);
                     ComputerMoves();
 
                     break;
                 default:
                     computerTurn = !computerTurn;
+                    cMisses++;
+                    CalcScores();
                     nextHitFlag = false;
                     invalidPositions.Add(new Vector(x, y));
                     player1Buttons[x, y].Background = Brushes.DarkGray;
@@ -412,7 +460,7 @@ namespace Torpedo
 
                     break;
             }
-            if (destroyer1 == 0 && cruiser1 == 0 && submarine1 == 0 && battleship1 == 0 && carrier1 == 0)
+            if (pShips == 0)
             {
                 MessageBoxResult result = MessageBox.Show("You lost!");
                 AfterWin();
@@ -455,62 +503,84 @@ namespace Torpedo
                     case "Carrier":
                         carrier2--;
                         button.Background = Brushes.Red;
+                        pHits++;
 
                         if (carrier2 == 0)
                         {
-                            MessageBoxResult result = MessageBox.Show("Carrier destroyed ");
+                            MessageBoxResult result = MessageBox.Show("Enemy Carrier destroyed");
+                            cShips--;
                         }
+
+                        CalcScores();
 
                         break;
                     case "Battleship":
                         battleship2--;
                         button.Background = Brushes.Red;
+                        pHits++;
 
                         if (battleship2 == 0)
                         {
-                            MessageBoxResult result = MessageBox.Show("Battleship destroyed ");
+                            MessageBoxResult result = MessageBox.Show("Enemy Battleship destroyed ");
+                            cShips--;
                         }
+
+                        CalcScores();
 
                         break;
                     case "Submarine":
                         submarine2--;
                         button.Background = Brushes.Red;
+                        pHits++;
 
                         if (submarine2 == 0)
                         {
-                            MessageBoxResult result = MessageBox.Show("Submarine destroyed ");
+                            MessageBoxResult result = MessageBox.Show("Enemy Submarine destroyed ");
+                            cShips--;
                         }
+
+                        CalcScores();
 
                         break;
                     case "Cruiser":
                         cruiser2--;
                         button.Background = Brushes.Red;
+                        pHits++;
 
                         if (cruiser2 == 0)
                         {
-                            MessageBoxResult result = MessageBox.Show("Cruiser destroyed ");
+                            MessageBoxResult result = MessageBox.Show("Enemy Cruiser destroyed ");
+                            cShips--;
                         }
+
+                        CalcScores();
 
                         break;
                     case "Destroyer":
                         destroyer2--;
                         button.Background = Brushes.Red;
+                        pHits++;
 
                         if (destroyer2 == 0)
                         {
-                            MessageBoxResult result = MessageBox.Show("Destroyer destroyed");
+                            MessageBoxResult result = MessageBox.Show("Enemy Destroyer destroyed");
+                            cShips--;
                         }
+
+                        CalcScores();
 
                         break;
                     default:
+                        pMisses++;
                         computerTurn = !computerTurn;
                         button.Background = Brushes.DarkGray;
+                        CalcScores();
                         ComputerMoves();
 
                         break;
                 }
 
-                if (destroyer2 == 0 && cruiser2 == 0 && submarine2 == 0 && battleship2 == 0 && carrier2 == 0)
+                if (cShips == 0)
                 {
                     MessageBoxResult result = MessageBox.Show("You Win");
                     AfterWin();

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Torpedo"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1200">
     <Grid>
         <TextBox Name ="playerName" Width="200" Height="30" Margin="300,210,300,210" FontSize="20"></TextBox>
         <Label Content="Név:" Width="100" Height="30" FontSize="18" FontWeight="Bold" Margin="195,210,505,210" HorizontalContentAlignment="Right"></Label>
